@@ -22,12 +22,12 @@ def route_root():
 @app.route('/v/<string:filename>')
 def route_image_view(filename):
     imgs = db.images
-    image_index = imgs.index(filename)
+    image_index, _ = db.find_by_filename(filename)
     try:
-        next_image = imgs[image_index + 1]
+        next_image = imgs[image_index + 1].image
     except IndexError:
-        next_image = imgs[0]
-    prev_image = imgs[image_index - 1]
+        next_image = imgs[0].image
+    prev_image = imgs[image_index - 1].image
     return render_template('view.html',
         filename=filename, next_image=next_image,
         prev_image=prev_image)
@@ -40,11 +40,4 @@ def route_image_proxy(filename):
 
 @app.route('/images')
 def route_images():
-    imthumbs = {}
-
-    for thumbnail_name in db.thumbnails:
-        for image_name in db.images:
-            if image_name == thumbnail_name.replace('.thumb', ''):
-                imthumbs[thumbnail_name] = image_name
-    return render_template('images.html',
-        images=db.images, imthumbs=imthumbs)
+    return render_template('images.html', images=db.images)

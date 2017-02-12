@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-  {% for thumb, image in imthumbs.items() %}
-  <a class="contains-image" href="{{ url_for('route_image_view', filename=image) }}">
-    <img class="thumb" src="{{ url_for('route_image_proxy', filename=thumb) }}">
+  {% for image in images %}
+  <a class="contains-image" href="{{ url_for('route_image_view', filename=image.image) }}">
+    <img class="thumb" src="{{ url_for('route_image_proxy', filename=image.thumbnail) }}">
   </a>
   {% endfor %}
 {% endblock %}
