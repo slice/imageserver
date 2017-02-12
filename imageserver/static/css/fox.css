@@ -77,3 +77,7 @@ img.thumb:hover {
 *:focus, *:active {
   outline: 0;
 }
+
+#preview {
+  box-shadow: 0 0 1rem #999;
+}
