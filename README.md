@@ -5,6 +5,12 @@
 imageserver is a lightweight server that hosts images. These images are
 available through the built-in web interface.
 
+**imageserver is NOT fully featured, finished, or ready for production yet.
+[Check the TODO list for more
+information.](https://github.com/sliceofcode/imageserver/blob/master/TODO.md)
+It is recommended that you run imageserver on your local/home network
+exclusively, and not on the public web.**
+
 ## Prerequisites
 
 - Python 3.6 is required. Python 2 and versions of Python 3 below 3.6 are
@@ -36,6 +42,6 @@ $ ./run dev
 
 # production
 $ ./run prod
-# to run on a custom port:
-$ ./run prod $MY_PORT
+# to run on a custom port, do:
+$ ./run prod $PORT
 ```
