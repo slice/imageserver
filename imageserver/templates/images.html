@@ -1,4 +1,12 @@
-<h2>images</h2>
-<p><code>;P</code</p>
+{% extends "layout.html" %}
+{% block content %}
+  {% for thumb, image in imthumbs.items() %}
+  <a class="contains-image" href="{{ url_for('route_image_view', filename=image) }}">
+    <img class="thumb" src="{{ url_for('route_image_proxy', filename=thumb) }}">
+  </a>
+  {% endfor %}
+{% endblock %}
 
-
+{% block navafter %}
+<em>{{ files | length }} files</em>
+{% endblock %}

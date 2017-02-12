@@ -1,0 +1,66 @@
+@import url(./normalize.css);
+
+body, html {
+  margin: 0;
+}
+
+nav {
+  font-size: 0.9em;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background: #000;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+nav .nav-after {
+  color: #ccc;
+  margin-left: auto;
+}
+
+nav a {
+  display: block;
+  margin: 0 0.5rem;
+  color: inherit;
+}
+
+a.contains-image {
+  text-decoration: none;
+}
+
+a.contains-image:visited {
+  outline: solid 0.15rem red;
+}
+
+.image-controls {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 1rem;
+}
+
+.image-controls a, .image-controls button {
+  display: block;
+  background: #000;
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.15rem;
+  text-decoration: inherit;
+  text-align: center;
+  margin-right: 0.5rem;
+  border: 0;
+}
+
+img.presentation {
+  margin: 1rem;
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+img.thumb {
+  width: 10vw;
+}
+
+img.thumb:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0.15rem 0 #000;
+}

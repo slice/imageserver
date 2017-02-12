@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block head %}
+  <script type="text/javascript" src="{{ url_for('static', filename='js/fox.js') }}"></script>
+{% endblock %}
+{% block content %}
+  <div class="image-controls">
+    {% if prev_image %}
+      <a href="{{ url_for('route_image_view', filename=prev_image) }}">
+        &Lt;
+      </a>
+    {% endif %}
+    {% if next_image %}
+      <a href="{{ url_for('route_image_view', filename=next_image) }}">
+        &Gt;
+      </a>
+    {% endif %}
+    <button id="full-button">image size</button>
+    <a href="{{ url_for('route_image_proxy', filename=filename) }}">
+      raw image
+    </a>
+  </div>
+  <img class="presentation"
+    src="{{ url_for('route_image_proxy', filename=filename) }}">
+{% endblock %}

@@ -3,8 +3,8 @@ import os
 from os import path
 
 # get the path to the images folder
-script_path = path.dirname(path.abspath(__file__))
-_images = path.join(path.join(script_path, '..'), 'images')
+_script_path = path.dirname(path.abspath(__file__))
+_images = path.join(path.join(_script_path, '..'), 'images')
 images = path.abspath(_images)
 
 def generate_thumbnail(file_path, target):
@@ -28,4 +28,5 @@ def generate_thumbnails():
             thumbnail_path = f'{file_path}.thumb'
             generate_thumbnail(file_path, thumbnail_path)
 
-generate_thumbnails()
+if __name__ == '__main__':
+    generate_thumbnails()
