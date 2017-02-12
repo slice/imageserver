@@ -42,9 +42,25 @@ window.addEventListener('mousemove', function(event) {
   }
 });
 
+const adminButtons = ['#refresh-database', '#regenerate-thumbs'];
+
+function disableAdminButtons() {
+  for (let adminButtonId of adminButtons) {
+    document.querySelector(adminButtonId).disabled = true;
+  }
+}
+
+function enableAdminButtons() {
+  for (let adminButtonId of adminButtons) {
+    document.querySelector(adminButtonId).disabled = false;
+  }
+}
+
 window.addEventListener('load', function() {
   let image = document.querySelector('img.presentation');
   let thumbnails = document.querySelectorAll('img.thumb');
+  let refresh = document.querySelector('#refresh-database');
+  let reThumbs = document.querySelector('#regenerate-thumbs');
 
   for (let thumbnail of thumbnails) {
     thumbnail.addEventListener('mouseover', function() {
@@ -53,6 +69,30 @@ window.addEventListener('load', function() {
 
     thumbnail.addEventListener('mouseout', function() {
       deactivateHover(thumbnail);
+    });
+  }
+
+  if (refresh) {
+    refresh.addEventListener('click', function() {
+      // XXX: this url is hardcoded
+      disableAdminButtons();
+      fetch('/api/database/refresh').then((resp) => resp.text()).then((text) => {
+        alert(`Finished! Took ${text} ms.`);
+        enableAdminButtons();
+      });
+    });
+  }
+
+  if (reThumbs) {
+    reThumbs.addEventListener('click', function() {
+      // XXX: this url is hardcoded
+      disableAdminButtons();
+      fetch('/api/database/redothumbs').then((resp) => resp.text()).then((text) => {
+        let ms = parseInt(text);
+        alert(`Finished! Took ${ms} ms (${ms / 1000} seconds).`);
+        this.disabled = false;
+        enableAdminButtons();
+      });
     });
   }
 

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <h1>Administration</h1>
+  <button type="button" id="refresh-database">Refresh database</button>
+  <p>
+    If the <code>images</code> folder has changed, you must press this button
+    or else things will break. You might want to do this after regenerating
+    thumbnails.
+  </p>
+  <button type="button" id="regenerate-thumbs">Regenerate thumbs</button>
+  <p>
+    Click this button to regenerate thumbnails. Expect this to take a while if you
+    have a lot of files. Try not to navigate off of the page. The server will be
+    busy during regeneration, and if you don't navigate off of the page you will
+    be notified when the process has completed.
+  </p>
+</div>
+{% endblock %}
