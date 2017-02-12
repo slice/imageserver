@@ -36,7 +36,11 @@ class Database:
         # TODO: handle nested directories. for now,
         # all of your images should be in a flat folder. imageserver will
         # ignore directories.
-        files = next(generator)[2]
+        try:
+            files = next(generator)[2]
+        except StopIteration:
+            # no files :(
+            files = []
 
         self.thumbnail_paths = list(filter(lambda x: x.endswith('.thumb'), files))
         self.image_paths = list(filter(lambda x: not x.endswith('.thumb'), files))
