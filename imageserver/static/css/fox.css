@@ -60,6 +60,10 @@ img.presentation {
   max-height: 80vh;
 }
 
+img.presentation:hover {
+  cursor: pointer;
+}
+
 img.thumb {
   width: 10vw;
 }
