@@ -1,17 +1,17 @@
 let thePreview;
-let mX = 0, mY = 0;
+let mX = 0, mY = 0, aX = 0, aY = 0;
 const previewOffset = 2;
 
 function updateHoverPosition() {
   const sX = innerWidth, sY = innerHeight;
 
-  if (mX > sX - (sX / 3)) {
+  if (aX > sX - (sX / 2.5)) {
     thePreview.style.left =
       `calc(${mX}px - ${previewOffset}rem - ${thePreview.offsetWidth}px)`;
   } else {
     thePreview.style.left = `calc(${mX}px + ${previewOffset}rem)`;
   }
-  if (mY > sY - (sY / 3)) {
+  if (aY > sY - (sY / 2.5)) {
     thePreview.style.top =
       `calc(${mY}px - ${previewOffset}rem - ${thePreview.offsetHeight}px)`;
   } else {
@@ -37,6 +37,7 @@ function deactivateHover(th) {
 
 window.addEventListener('mousemove', function(event) {
   mX = event.pageX; mY = event.pageY;
+  aX = event.screenX; aY = event.screenY;
   if (thePreview) {
     updateHoverPosition();
   }
