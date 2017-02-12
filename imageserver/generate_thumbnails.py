@@ -15,8 +15,9 @@ def generate_thumbnail(file_path, target):
     th_width = int(width / th_ratio)
     th_height = int(height / th_ratio)
     print(f'  Size: {width}, {height} → {th_width}, {th_height}')
+    print(f'  Format: {img.format}')
     img.thumbnail((th_width, th_height))
-    img.save(target, "PNG")
+    img.save(target, img.format)
     print(f'  ✔ Generated')
 
 def generate_thumbnails():

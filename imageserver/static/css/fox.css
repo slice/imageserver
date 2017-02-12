@@ -38,6 +38,10 @@ a.contains-image:visited {
   padding: 1rem;
 }
 
+.image-grid {
+  padding: 1rem;
+}
+
 .image-controls a, .image-controls button {
   display: block;
   background: #000;
