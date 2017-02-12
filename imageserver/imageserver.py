@@ -103,7 +103,10 @@ def route_image_proxy(filename):
         '.tif': 'image/tiff',
         '.tiff': 'image/tiff',
     }
-    target_filename = join(db.path, filename)
+    target_filename = path.abspath(join(db.path, filename))
+    if not target_filename.startswith(db.path) or '/' in filename:
+        # tried to escape the boundaries of the database
+        abort(404)
     _, extension = path.splitext(target_filename.replace('.thumb', ''))
     try:
         data = open(target_filename, 'rb').read()
