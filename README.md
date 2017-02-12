@@ -1,5 +1,7 @@
 # `imageserver`
 
+![](https://i.imgur.com/VMTONmw.gif)
+
 imageserver is a lightweight server that hosts images. These images are
 available through the built-in web interface.
 
