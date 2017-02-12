@@ -10,8 +10,7 @@ if [[ "$ENV" == "" ]]; then
 fi
 
 # running variables
-export PYTHONPATH=.
-export FLASK_APP=imageserver.app
+export FLASK_APP=imageserver.imageserver
 
 if [[ "$ENV" == "dev" ]]; then
   export FLASK_DEBUG=1

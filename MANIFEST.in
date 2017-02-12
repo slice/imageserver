@@ -1,0 +1,2 @@
+graft imageserver/templates
+graft imageserver/static

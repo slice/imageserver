@@ -1,4 +1,10 @@
+# python files
 *.pyc
 __pycache__
+*.egg-info/
+.eggs/
+.cache/
 
+# images
 /images
+/tests/test_images/*.thumb
