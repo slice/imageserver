@@ -31,6 +31,11 @@ class Database:
 
     def refresh(self):
         """ Rebuilds the list of images. """
+
+        self.thumbnail_paths = []
+        self.image_paths = []
+        self.images = []
+
         generator = os.walk(self.path)
 
         # TODO: handle nested directories. for now,
