@@ -21,7 +21,7 @@ exclusively, and not on the public web.**
   - Finding out if your Linux distribution has packages for Pillow and
     Flask. If your distro has them, install it.
   - If your Linux distro has no packages for Pillow and Flask, they will be
-    installed automatically by `setup.py` in a few steps.
+    installed automatically by `setup.py`.
 
 ## Setup
 
