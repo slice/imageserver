@@ -1,5 +1,6 @@
 # TODO
 
+- [ ] **Tests!**
 - [ ] Actual database instead of an in-memory one that gets rebuilt every
   launch.
   - [ ] Favorite images. (maybe)
@@ -14,6 +15,7 @@
   - [ ] `/api/images` List of images in JSON format.
   - [ ] `/api/image/<string:filename>` Information/metadata about image in JSON
     format.
+- [ ] Properly handle MIME types in the image "proxy".
 - [x] Admin interface.
   - [x] Regenerates thumbnails through the interface.
   - [x] Refresh database through the interface.
