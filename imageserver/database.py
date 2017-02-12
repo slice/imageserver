@@ -56,6 +56,9 @@ class Database:
 
         # generate image objects
         for i, image in enumerate(self.image_paths):
-            thumb = self.thumbnail_paths[i]
-            print(f' * Build: {image}')
-            self.images.append(Image(image, thumb))
+            try:
+                thumb = self.thumbnail_paths[i]
+                print(f' * Build: {image}')
+                self.images.append(Image(image, thumb))
+            except IndexError:
+                print(f' * ERROR: {image} has missing thumbnail')
