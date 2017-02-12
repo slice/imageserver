@@ -50,6 +50,10 @@ a.contains-image:visited {
   border: 0;
 }
 
+.image-controls button:hover {
+  cursor: pointer;
+}
+
 img.presentation {
   margin: 1rem;
   max-width: 80vw;
@@ -63,4 +67,8 @@ img.thumb {
 img.thumb:hover {
   transform: scale(1.05);
   box-shadow: 0 0 0.15rem 0 #000;
+}
+
+*:focus, *:active {
+  outline: 0;
 }
