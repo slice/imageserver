@@ -34,9 +34,18 @@ def route_image_view(filename):
 
 @app.route('/i/<string:filename>')
 def route_image_proxy(filename):
+    extensions = {
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpg',
+        '.png': 'image/png',
+        '.gif': 'image/gif',
+        '.tif': 'image/tiff',
+        '.tiff': 'image/tiff',
+    }
     target_filename = join(images_folder(), filename)
+    _, extension = path.splitext(target_filename.replace('.thumb', ''))
     data = open(target_filename, 'rb').read()
-    return Response(data, mimetype='image/png')
+    return Response(data, mimetype=extensions[extension])
 
 @app.route('/images')
 def route_images():
