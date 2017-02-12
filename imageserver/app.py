@@ -1,8 +1,19 @@
 from flask import Flask, Response, render_template, redirect
-from .images import *
+from .database import Database
+import os
+from os import path
 from os.path import join
 
+def images_folder():
+    # get the path to the images folder
+    _script_path = path.dirname(path.abspath(__file__))
+    images = join(join(_script_path, '..'), 'images')
+    return path.abspath(images)
+
 app = Flask(__name__)
+print(f' * Database: {images_folder()}')
+db = Database(images_folder())
+db.refresh()
 
 @app.route('/')
 def route_root():
@@ -10,7 +21,7 @@ def route_root():
 
 @app.route('/v/<string:filename>')
 def route_image_view(filename):
-    imgs = sorted(images())
+    imgs = db.images
     image_index = imgs.index(filename)
     try:
         next_image = imgs[image_index + 1]
@@ -31,9 +42,9 @@ def route_image_proxy(filename):
 def route_images():
     imthumbs = {}
 
-    for thumbnail_name in sorted(thumbs()):
-        for image_name in images():
+    for thumbnail_name in db.thumbnails:
+        for image_name in db.images:
             if image_name == thumbnail_name.replace('.thumb', ''):
                 imthumbs[thumbnail_name] = image_name
     return render_template('images.html',
-        files=files(), imthumbs=imthumbs)
+        images=db.images, imthumbs=imthumbs)
