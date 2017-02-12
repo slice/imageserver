@@ -20,11 +20,12 @@ exclusively, and not on the public web.**
 - Pillow (PIL fork) and Flask. Install by:
   - Finding out if your Linux distribution has packages for Pillow and
     Flask. If your distro has them, install it.
-  - Alternatively, run `[sudo] pip install -r requirements.txt`
+  - If your Linux distro has no packages for Pillow and Flask, they will be
+    installed automatically by `setup.py` in a few steps.
 
 ## Setup
 
-1. Ensure that all dependencies have been installed.
+1. Run `[sudo] pip install --editable .`
 2. Create an `images` directory at the root of the repository (the
    directory that has this file inside of it).
 3. Fill that directory with images. Image filetypes that are supported by
