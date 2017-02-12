@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] **Tests!**
+- [x] **Tests!**
 - [ ] Actual database instead of an in-memory one that gets rebuilt every
   launch.
   - [ ] Favorite images. (maybe)
