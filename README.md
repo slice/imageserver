@@ -32,11 +32,10 @@ available through the built-in web interface.
 
 ```sh
 # hacking/development
-$ PYTHONPATH=. FLASK_APP=imageserver.app FLASK_DEBUG=1 flask run
+$ ./run dev
 
 # production
-$ PYTHONPATH=. FLASK_APP=imageserver.app flask run --host 0.0.0.0
-
-# Runs on :5000 by default. Use --port XXXX (e.g. --port 80) to use a
-# custom port.
+$ ./run prod
+# to run on a custom port:
+$ ./run prod $MY_PORT
 ```
