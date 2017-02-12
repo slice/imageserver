@@ -2,6 +2,8 @@
 
 body, html {
   margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
 }
 
 nav {
@@ -11,6 +13,13 @@ nav {
   background: #000;
   display: flex;
   flex-flow: row nowrap;
+}
+
+.container {
+  max-width: 35em;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
 }
 
 nav .nav-after {
